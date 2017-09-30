@@ -12,30 +12,21 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>msg</th>
-									<th>Names</th>
-									<th>location</th>
-									<th>time</th>
+									<th>emloyee id</th>
+									<th>names</th>
+									<th>date/time</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="success">
-									<td>1</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
+									<td>1220</td>
+									<td>mabu manaileng</td>
+									<td>october 1, 12:00PM</td>
 								</tr>
 								<tr class="success">
-									<td>2</td>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr class="success">
-									<td>3</td>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
+									<td>1220</td>
+									<td>mabu manaileng</td>
+									<td>october 1, 12:00PM</td>
 								</tr>
 							</tbody>
 						</table>
@@ -361,6 +352,132 @@
 		</div>
 	</div>
 
+
+	<!--this is meeting request details -->
+	<div class="row animated zoomIn" id='request_details'>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12 panel-primary">
+					<div class="content-box-large box-with-header">
+						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered " id="request_view_tab">
+							<thead>
+								<tr class='warning'>
+									<th class='text-center' id='request_meeting_id'>status</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='request_name'>names</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='request_location'>location</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='time'>time</th>
+								</tr>
+								
+
+							</thead>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+						<a type="button" id="btn_join_request" class="btn btn-lg btn-block btn-primary">confirm</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--this is colleague meeting details -->
+	<div class="row animated zoomIn" id='collmeet_details'>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12 panel-primary">
+					<div class="content-box-large box-with-header">
+						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="collmeet_view_tab">
+							<thead>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_id'>meeting id</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_emp1'>eim master</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_emp2'>eid 2</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_time'>time</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_place'>location</th>
+								</tr>
+
+							</thead>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+						<a type="button" id="btn_join_collmeet" class="btn btn-lg btn-block btn-primary">join</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 
+	<this is colleague meeting details >
+	<div class="row animated zoomIn" id='meetcoll_details'>
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12 panel-primary">
+					<div class="content-box-large box-with-header">
+						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="meetcoll_view_tab">
+							<thead>
+								<tr class='warning'>
+									<th class='text-center' id='id_meet'>meeting id</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='master_meet'>eim master</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='epm_2'>eid 2</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='time2'>place</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='place_2'>team</th>
+								</tr>
+
+							</thead>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+						<a type="button" id="btn_join_meetcoll_cancel" class="btn btn-lg btn-block btn-danger">cancel</a>
+					</div>
+					<div class="col-md-4">
+						<a type="button" id="btn_join_meetcoll" class="btn btn-lg btn-block btn-primary">confirm</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+
+	<!-- project details -->
 	<div class="row animated zoomIn" id='project_details'>
 		<div class="col-md-12">
 			<div class="row">
@@ -399,7 +516,7 @@
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4">
-						<a type="button" id="btn_join_proj" class="btn btn-lg btn-block btn-primary">click to join</a>
+						<a type="button" id="btn_join_proj" class="btn btn-lg btn-block btn-primary">join project </a>
 					</div>
 				</div>
 			</div>
