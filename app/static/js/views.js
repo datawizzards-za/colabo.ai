@@ -29,12 +29,9 @@ $(document).ready(function () {
                 $('#request_details').show();
         });
 
-
-
-
          $('#btn_join_request').click(function () {
                 $.notify("you have succesfully scheduled a meeting.",
-                        {position: 'right top', classType: "success"});
+                        { position: 'right middle', className: 'info' });
         });
       
         // $('#btn_join_collmeet').click(function(){
@@ -43,26 +40,20 @@ $(document).ready(function () {
         // });
 
         $('#btn_join_proj').click(function () {
-                
                 $.notify("yay! request send to your line manager for approval.",
-                        
-                        { position: 'right top', classType: "success" });
+                        { position: 'right middle', className: 'info' });
         });
 
 
         $('#btn_join_meetcoll').click(function () {
                 $.notify("you have succesfully joined a meeting",
-                        {position: 'right top', classType: "success"});
+                        { position: 'right middle', className: 'info' });
         });
 
          $('#btn_join_meetcoll_cancel').click(function () {
-                $.notify("you have succesfully cancelled the meeting.",
-                        
-                        {position: 'right top', classType: "success"});
+                $.notify("yay! your request has been sent to your line manager for approval.",
+                        { position: 'right middle', className: 'info' });
         });
-
-
-
 
         $('#requests').click(function () {
                 $('#dash_view').hide();
