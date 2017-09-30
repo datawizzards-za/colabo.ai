@@ -14,3 +14,23 @@ class Home(View):
 
     def post(self, request, args, **kwarg):
         return render(request, self.template_name)
+
+
+class SignIn(View):
+    template_name = 'app/signin.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request, args, **kwarg):
+        return render(request, self.template_name)
+
+
+class SignUp(View):
+    template_name = 'app/signup.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request, args, **kwarg):
+        return render(request, self.template_name)
