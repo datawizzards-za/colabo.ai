@@ -1,6 +1,6 @@
 from django.conf.urls import url
-import views
+from app import views
 
 urlpatterns = [
-    url(r'^\Z', views.Home.as_view(), name='name'),
+    url(r'^\Z', views.Home.as_view(), name='home'),
 ]
