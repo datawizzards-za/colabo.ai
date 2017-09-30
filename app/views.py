@@ -34,3 +34,13 @@ class SignUp(View):
 
     def post(self, request, args, **kwarg):
         return render(request, self.template_name)
+
+
+class Calendar(View):
+    template_name = 'app/calendar.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request, args, **kwarg):
+        return render(request, self.template_name)
