@@ -247,6 +247,7 @@ footer .copy{
    border-left:1px solid #eee;
    border-top:1px solid #eee;
    border-right:2px solid #eee;
+   text-align: center;
 }
 
 .content-box-header:after {
@@ -554,9 +555,9 @@ body {
 }
 
 .panel-heading>.panel-title, .content-box-header .panel-title {
-    float: left;
-    padding: 10px 15px;
+    padding: 0px 15px;
     padding-top: 0px;
+    font-size: 20px;
 }
 
 .panel-heading>.panel-title>*, .content-box-header .panel-title>* {
