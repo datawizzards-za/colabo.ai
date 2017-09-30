@@ -258,6 +258,13 @@
 								</tr>
 							</tbody>
 						</table>
+						<br/><br/>
+						<h4>Suggested Topics </h4>
+						{% for item in headlines %}
+							<div class="alert alert-success">
+							  <strong>Success!</strong> {{item|safe}}
+							</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
