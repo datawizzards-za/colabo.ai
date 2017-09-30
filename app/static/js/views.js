@@ -20,39 +20,35 @@ $(document).ready(function () {
                 $('#collmeet_view').hide();
                 $('#collmeet_details').show();
         });
-        $('#meetcoll_view_tab tbody').on('click', 'tr', function (e) {
-                $('#meetcoll_view').hide();
-                $('#meetcoll_details').show();
-        });
         $('#request_view_tab tbody').on('click', 'tr', function (e) {
-                $('#request_view').hide();
+                $('#requests_view').hide();
                 $('#request_details').show();
         });
 
-         $('#btn_join_request').click(function () {
-                $.notify("you have succesfully scheduled a meeting.",
-                        { position: 'right middle', className: 'info' });
+        $('#btn_join_request').click(function () {
+                $.notify("your meeting has been scheduled successfully, please check your calendar.",
+                        { position: 'right top', className: 'info' });
         });
-      
-        // $('#btn_join_collmeet').click(function(){
-        //         $.notify("You have successfully booked the meeting",{position: 'right top'});
 
-        // });
+        $('#btn_join_collmeet').click(function () {
+                $.notify("your request has been sent to the owner for approval.",
+                        { position: 'right top', className: 'info' });
+        });
 
         $('#btn_join_proj').click(function () {
                 $.notify("yay! request send to your line manager for approval.",
-                        { position: 'right middle', className: 'info' });
+                        { position: 'top right', className: 'info' });
         });
 
 
         $('#btn_join_meetcoll').click(function () {
                 $.notify("you have succesfully joined a meeting",
-                        { position: 'right middle', className: 'info' });
+                        { position: 'right top', className: 'info' });
         });
 
-         $('#btn_join_meetcoll_cancel').click(function () {
+        $('#btn_join_meetcoll_cancel').click(function () {
                 $.notify("yay! your request has been sent to your line manager for approval.",
-                        { position: 'right middle', className: 'info' });
+                        { position: 'right top', className: 'info' });
         });
 
         $('#requests').click(function () {
