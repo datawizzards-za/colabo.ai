@@ -13,9 +13,8 @@ $(document).ready(function () {
 
 
         $('#btn_join_proj').click(function () {
-                $.notify("yay! request send to your line manager for approval.",
-                        "success",
-                        { position: 'right top' });
+                $.notify("yay! your request has been sent to your line manager for approval.",
+                        { position: 'right middle', className: 'info' });
         });
 
         $('#requests').click(function () {
