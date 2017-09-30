@@ -3,14 +3,21 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views import View
-# Create your views here.
+from rest_framework import generics
+
+from app.utils import topics
+import pickle
 
 
 class Home(View):
     template_name = 'app/index.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        data = pickle.load(open('data/johannesburg.pkl', 'r'))
+        data_samples = [d['description'] for d in data]
+        headlines = topics.compute_nmf(data_samples)
+        context = {'headlines': headlines}
+        return render(request, self.template_name, context)
 
     def post(self, request, args, **kwarg):
         return render(request, self.template_name)
@@ -28,16 +35,6 @@ class SignIn(View):
 
 class SignUp(View):
     template_name = 'app/signup.html'
-
-    def get(self, request):
-        return render(request, self.template_name)
-
-    def post(self, request, args, **kwarg):
-        return render(request, self.template_name)
-
-
-class Calendar(View):
-    template_name = 'app/calendar.html'
 
     def get(self, request):
         return render(request, self.template_name)
