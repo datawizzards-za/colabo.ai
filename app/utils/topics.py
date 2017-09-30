@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 def print_top_words(model, feature_names, n_top_words):
@@ -29,3 +30,10 @@ def compute_nmf(data_samples):
     tfidf_feature_names = tfidf_vectorizer.get_feature_names()
     return print_top_words(nmf, tfidf_feature_names, n_top_words)
 
+
+def compute_similarity(data_samples, x, y):
+    vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform(data_samples[:60])
+    score = cosine_similarity(X[x, :], X[y, :])
+
+    return score
