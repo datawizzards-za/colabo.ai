@@ -2,6 +2,8 @@ from django.conf.urls import url
 from app import views
 
 urlpatterns = [
-    url(r'^\Z', views.Home.as_view(), name='home'),
+    url(r'^\Z', views.SignIn.as_view(), name='signin'),
     url(r'^app/', views.Home.as_view(), name='home'),
+    url(r'^signin/', views.SignIn.as_view(), name='signin'),
+    url(r'^signup/', views.SignUp.as_view(), name='signup'),
 ]
