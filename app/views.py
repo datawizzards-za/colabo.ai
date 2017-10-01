@@ -12,6 +12,7 @@ import numpy as np
 from app.models import Employee, Skill, Interest, Project, Topic, Meeting, \
     Review, MeetingStatus
 
+
 class Home(View):
     template_name = 'app/index.html'
 
@@ -60,13 +61,14 @@ class GetSystemOrderDetails(generics.ListAPIView):
         context = {'headlines': headlines}
         return context
 
+
 class GetData(generics.ListAPIView):
     def get_queryset(self):
         title_desc = pickle.load(open('data/johannesburg.pkl', 'r'))
         names = pickle.load(open('data/employee_names.pkl', 'r'))
 
         name_ = [{'full_names': name[0], 'gender':True if name[1] == "Mr" else
-        False} for name in names]
+                  False} for name in names]
         df1 = pd.DataFrame(title_desc)
         df2 = pd.DataFrame(name_)
         df = pd.concat([df1, df2], axis=1)
@@ -82,19 +84,18 @@ class GetData(generics.ListAPIView):
         interests = open('data/interests.txt', 'r').readlines()
         #interest = [array.replace('\n','') for array in interests]
 
-
         def rates(interest):
             a = np.arange(len(interest))
             np.random.shuffle(a)
-            interest = [[interest[i],i] for i in a[:11]]
+            interest = [[interest[i], i] for i in a[:11]]
             return interest
 
         #df['interests'] = df['id'].apply(lambda x: rates(interest))
         def data_employee():
             for item in range(len(df)):
                 Employee.objects.create(full_names=df[
-                    'full_names'][item], gender = df['gender'][item],
-                     job_desc=df['description'][item],
+                    'full_names'][item], gender=df['gender'][item],
+                    job_desc=df['description'][item],
                     job_title=df['job_title'][item])
 
         def skills_insert(df):
@@ -115,7 +116,7 @@ class GetData(generics.ListAPIView):
                        emp.skills.add(skill)
             """
             # Step three: interests
-            #for emp in Employee.objects.all():
+            # for emp in Employee.objects.all():
 
             #    pass
             """
