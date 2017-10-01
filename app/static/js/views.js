@@ -72,7 +72,7 @@ $(document).ready(function () {
                                 var fn = document.createElement('td');
                                 fn.innerHTML = element.full_names;
                                 var jt = document.createElement('td');
-                                jt.innerHTML = element.job_title;
+                                jt.innerHTML = new Date();
                                 var id = document.createElement('td');
                                 id.innerHTML = element.emp_id;
                                 tr.appendChild(id)
@@ -96,19 +96,24 @@ $(document).ready(function () {
                         var str = '';
                         var tbody = $('#proj_tbl tbody')[0];
                         $.each(data, function (i, element) {
+                                if(i==1){
                                 var tr = document.createElement('tr');
                                 var fn = document.createElement('td');
-                                fn.innerHTML = element.full_names;
+                                fn.innerHTML = 'Financial Accounting';
                                 var jt = document.createElement('td');
-                                jt.innerHTML = element.job_title;
+                                jt.innerHTML = element.full_names;
                                 var id = document.createElement('td');
                                 id.innerHTML = element.emp_id;
+                                var date = document.createElement('td');
+                                date.innerHTML = new Date() + 120;
                                 tr.appendChild(id)
                                 tr.appendChild(fn)
                                 tr.appendChild(jt)
+                                tr.appendChild(date)
 
                                 tbody.appendChild(tr);
-                                console.log(tbody.innerHTML)
+                        }
+                                
                                 //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
                         });
 
@@ -128,12 +133,15 @@ $(document).ready(function () {
                                 var fn = document.createElement('td');
                                 fn.innerHTML = element.full_names;
                                 var jt = document.createElement('td');
-                                jt.innerHTML = element.job_title;
+                                jt.innerHTML = 'ME';
                                 var id = document.createElement('td');
                                 id.innerHTML = element.emp_id;
+                                var place = document.createElement('td');
+                                place.innerHTML = 'Johannesburg';
                                 tr.appendChild(id)
                                 tr.appendChild(fn)
                                 tr.appendChild(jt)
+                                tr.appendChild(place)
 
                                 tbody.appendChild(tr);
                                 console.log(tbody.innerHTML)
