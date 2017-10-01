@@ -143,7 +143,7 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = ['emp_id', 'full_names', 'job_title']
+        fields = ['emp_id', 'full_names', 'job_title', 'job_desc']
 
 
 class EmployeeDetails(generics.ListAPIView):
