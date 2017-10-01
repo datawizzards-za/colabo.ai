@@ -3,6 +3,8 @@ from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfTransformer, TfidfVectorizer, CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+from app import models
+
 
 def print_top_words(model, feature_names, n_top_words):
     topics = []
@@ -31,9 +33,13 @@ def compute_nmf(data_samples):
     return print_top_words(nmf, tfidf_feature_names, n_top_words)
 
 
-def compute_similarity(data_samples, x, y):
+def compute_similarity(data_samples):
     vectorizer = TfidfVectorizer(stop_words='english')
-    X = vectorizer.fit_transform(data_samples[:60])
-    score = cosine_similarity(X[x, :], X[y, :])
-
-    return score
+    X = vectorizer.fit_transform(data_samples)
+    score = cosine_similarity(X[0:1], X)[0]
+    indexes = sorted(range(len(score)), key=lambda x: score[x]>0.7 and
+                                                      score[x]<1)[-3:]
+    employees = models.Employee.objects.filter(emp_id__in=indexes)
+    #print employees.values()
+    scores = [score[i] for i in indexes]
+    return employees
