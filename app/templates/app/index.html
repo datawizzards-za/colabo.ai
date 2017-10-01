@@ -8,11 +8,10 @@
 						<div class="panel-title">meeting requests</div>
 					</div>
 					<div class="content-box-large box-with-header">
-
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>emloyee id</th>
+									<th>emloyee-id</th>
 									<th>names</th>
 									<th>date/time</th>
 								</tr>
@@ -21,12 +20,12 @@
 								<tr class="success">
 									<td>1220</td>
 									<td>mabu manaileng</td>
-									<td>october 1, 12:00PM</td>
+									<td>October 1, 12:00PM</td>
 								</tr>
 								<tr class="success">
 									<td>1220</td>
 									<td>mabu manaileng</td>
-									<td>october 1, 12:00PM</td>
+									<td>October 1, 12:00PM</td>
 								</tr>
 							</tbody>
 						</table>
@@ -39,33 +38,21 @@
 						<div class="panel-title">projects</div>
 					</div>
 					<div class="content-box-large box-with-header">
-						<table class="table table-hover">
+						<table class="table table-hover" id='proj_tbl'>
 							<thead>
 								<tr>
-									<th>#</th>
-									<th>First Name</th>
-									<th>Last Name</th>
-									<th>Username</th>
+									<th>id</th>
+									<th>name</th>
+									<th>lead</th>
+									<th>end-date</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="success">
-									<td>1</td>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
-								</tr>
-								<tr class="success">
-									<td>2</td>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr class="success">
-									<td>3</td>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
+									<td id='proj_id'>1</td>
+									<td id='proj_name'>collabo.ai</td>
+									<td id='proj_lead'>Mabu Manaileng</td>
+									<td>01-October-2017</td>
 								</tr>
 							</tbody>
 						</table>
@@ -84,30 +71,18 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>msg</th>
-									<th>Names</th>
-									<th>location</th>
-									<th>time</th>
+									<th>meeting-id</th>
+									<th>organizer</th>
+									<th>attendee(s)</th>
+									<th>place</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="success">
-									<td>^</td>
-									<td>Mark</td>
-									<td>johannesburg</td>
-									<td>12:00-13:00</td>
-								</tr>
-								<tr class="success">
-									<td>2</td>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr class="success">
-									<td>3</td>
-									<td>Larry</td>
-									<td>the Bird</td>
-									<td>@twitter</td>
+									<td id='meeting_id'>1</td>
+									<td id='organizer'>Asive Dlaba</td>
+									<td id='attendee'>Lero Lyn</td>
+									<td id='location'>johannesburg</td>
 								</tr>
 							</tbody>
 						</table>
@@ -124,9 +99,9 @@
 						<table class="table table-hover">
 							<thead>
 								<tr>
-									<th>#</th>
-									<th>First Name</th>
-									<th>Last Name</th>
+									<th>employee id</th>
+									<th>Names</th>
+									<th></th>
 									<th>Username</th>
 								</tr>
 							</thead>
@@ -218,43 +193,28 @@
 						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="collmeet_view_tab">
 							<thead>
 								<tr>
-									<th>Rendering</th>
-									<th>Browser</th>
-									<th>Platform(s)</th>
-									<th>Engine version</th>
-									<th>CSS grade</th>
+									<th>meeting-id</th>
+									<th>organizer</th>
+									<th>attendee(s)</th>
+									<th>place</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="odd gradeX">
-									<td>Trident</td>
-									<td>Internet Explorer 4.0</td>
-									<td>Win 95+</td>
-									<td class="center"> 4</td>
-									<td class="center">X</td>
+								<tr class="success">
+									<td id='coll_meeting_id'>1</td>
+									<td id='coll_organizer'>Asive Dlaba</td>
+									<td id='coll_attendee'>Lero Lyn</td>
+									<td id='coll_location'>johannesburg</td>
 								</tr>
-								<tr class="even gradeC">
-									<td>Trident</td>
-									<td>Internet Explorer 5.0</td>
-									<td>Win 95+</td>
-									<td class="center">5</td>
-									<td class="center">C</td>
-								</tr>
-								<tr class="odd gradeA">
-									<td>Trident</td>
-									<td>Internet Explorer 5.5</td>
-									<td>Win 95+</td>
-									<td class="center">5.5</td>
-									<td class="center">A</td>
-								</tr>
+
 							</tbody>
 						</table>
 						<br/><br/>
 						<h4>Suggested Topics </h4>
 						{% for item in headlines %}
-							<div class="alert alert-success">
-							  <strong>Success!</strong> {{item|safe}}
-							</div>
+						<div class="alert alert-success">
+							<strong>Success!</strong> {{item|safe}}
+						</div>
 						{% endfor %}
 					</div>
 				</div>
@@ -324,26 +284,18 @@
 								<tr>
 									<th>id</th>
 									<th>name</th>
-									<th>head</th>
-									<th>launch date</th>
-									<th>deadline</th>
+									<th>lead</th>
+									<th>end-date</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="odd gradeX success">
-									<td>9</td>
-									<td>collabo.ai</td>
-									<td>data wizards</td>
-									<td>september 29, 2017</td>
-									<td class="center"> october 1, 2017</td>
-								</tr>
-								<tr class="odd gradeX">
-									<td>3</td>
-									<td>collabo.ai</td>
-									<td>data wizards</td>
-									<td>september 29, 2017</td>
-									<td class="center"> october 1, 2017</td>
-								</tr>
+									<tr class="success">
+										<td id='proj_id'>1</td>
+										<td id='proj_name'>collabo.ai</td>
+										<td id='proj_lead'>Mabu Manaileng</td>
+										<td>01-October-2017</td>
+									</tr>
 							</tbody>
 						</table>
 					</div>
@@ -399,19 +351,25 @@
 						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="collmeet_details_tab">
 							<thead>
 								<tr class='warning'>
-									<th class='text-center' id='collmeet_id'>meeting id</th>
+									<th class='text-center' id='collmeet_id'>this is meeting id #</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='collmeet_emp1'>eim master</th>
+									<th class='text-center' id='collmeet_organizer'>organized for/by mabu manaileng</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='collmeet_emp2'>eid 2</th>
+									<th class='text-center' id='collmeet_attendees'>together with doc</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='collmeet_time'>time</th>
+									<th class='text-center' id='collmeet_location'>At Braam</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='collmeet_place'>location</th>
+									<th class='text-center' id='collmeet_topic'>Regarding AI</th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_start'>they started at </th>
+								</tr>
+								<tr class='warning'>
+									<th class='text-center' id='collmeet_end'>and ended </th>
 								</tr>
 
 							</thead>
@@ -431,50 +389,6 @@
 		</div>
 	</div>
 
-	<!-- 
-	<this is colleague meeting details >
-	<div class="row animated zoomIn" id='meetcoll_details'>
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-12 panel-primary">
-					<div class="content-box-large box-with-header">
-						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="meetcoll_view_tab">
-							<thead>
-								<tr class='warning'>
-									<th class='text-center' id='id_meet'>meeting id</th>
-								</tr>
-								<tr class='warning'>
-									<th class='text-center' id='master_meet'>eim master</th>
-								</tr>
-								<tr class='warning'>
-									<th class='text-center' id='epm_2'>eid 2</th>
-								</tr>
-								<tr class='warning'>
-									<th class='text-center' id='time2'>place</th>
-								</tr>
-								<tr class='warning'>
-									<th class='text-center' id='place_2'>team</th>
-								</tr>
-
-							</thead>
-						</table>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="col-md-4">
-					</div>
-					<div class="col-md-4">
-						<a type="button" id="btn_join_meetcoll_cancel" class="btn btn-lg btn-block btn-danger">cancel</a>
-					</div>
-					<div class="col-md-4">
-						<a type="button" id="btn_join_meetcoll" class="btn btn-lg btn-block btn-primary">confirm</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-
 	<!-- project details -->
 	<div class="row animated zoomIn" id='project_details'>
 		<div class="col-md-12">
@@ -484,13 +398,13 @@
 						<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
 							<thead>
 								<tr class='warning'>
-									<th class='text-center' id='proj_name'>name</th>
+									<th class='text-center' id='proj_detaills_name'>name</th>
 								</tr>
 								<tr class='warning'>
 									<th class='text-center' id='proj_desc'>description</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='proj_head'>head</th>
+									<th class='text-center' id='proj_details_lead'>head</th>
 								</tr>
 								<tr class='warning'>
 									<th class='text-center' id='proj_skills'>required skills</th>
@@ -499,10 +413,10 @@
 									<th class='text-center' id='proj_team'>team</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='proj_launch'>launched date: </th>
+									<th class='text-center' id='proj_start'>start date</th>
 								</tr>
 								<tr class='warning'>
-									<th class='text-center' id='proj_deadline'>deadline: </th>
+									<th class='text-center' id='proj_end'>end date</th>
 								</tr>
 							</thead>
 						</table>
