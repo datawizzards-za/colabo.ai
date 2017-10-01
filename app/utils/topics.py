@@ -54,3 +54,14 @@ def computex_similarity(data_samples):
     #print employees.values()
     scores = [score[i] for i in indexes]
     return employees
+
+def computey_similarity(data_samples):
+    vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform(data_samples)
+    score = cosine_similarity(X[0:1], X)[0]
+    indexes = sorted(range(len(score)), key=lambda x: score[x]>0.1 and
+                                                      score[x]<0.3)[-3:]
+    employees = models.Employee.objects.filter(emp_id__in=indexes)
+    #print employees.values()
+    scores = [score[i] for i in indexes]
+    return employees

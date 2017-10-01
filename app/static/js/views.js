@@ -122,7 +122,7 @@ $(document).ready(function () {
 
         $.ajax({
                 method: "GET",
-                url: "/app/rand/",
+                url: "/app/randx/",
                 async: true,
                 success: function (data) {
                         console.log(data)
