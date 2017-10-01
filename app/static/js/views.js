@@ -51,6 +51,26 @@ $(document).ready(function () {
                         { position: 'right top', className: 'info' });
         });
 
+        /**
+        $.getJSON('../../app/sims/', function(data){
+                        console.log("Something is write");
+
+                console.log(data);
+        });
+        */
+
+        $.ajax({
+                method: "GET",
+                url: "/app/sims/",
+                async: true,
+                success: function(data) {
+                        $.each(data, function(i, element){
+                           document.getElementById('top-profiles').innerHTML = ''+element['full_names']+'';
+                        });
+                        
+                }
+        });
+
         $('#requests').click(function () {
                 $('#dash_view').hide();
                 $('#collmeet_view').hide();

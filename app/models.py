@@ -4,26 +4,22 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+class Skill(models.Model):
+    name = models.CharField(primary_key=True, max_length=100)
+
 class Employee(models.Model):
     emp_id = models.AutoField(primary_key=True, unique=True)
     full_names = models.CharField(max_length=100)
     gender = models.BooleanField()
     job_desc = models.CharField(max_length=10000)
     job_title = models.CharField(max_length=1000)
-
-
-class Skill(models.Model):
-    class Meta:
-        unique_together = (('name', 'emp_id'))
-    
-    name = models.CharField(primary_key=True, max_length=100)
-    emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    skills = models.ManyToManyField(Skill)
 
 
 class Interest(models.Model):
     class Meta:
         unique_together = (('name', 'emp_id'))
-    
+
     name = models.CharField(primary_key=True, max_length=100)
     emp_id = models.ForeignKey(Employee, on_delete=models.CASCADE)
 

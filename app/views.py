@@ -3,13 +3,14 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views import View
-from rest_framework import generics
+from rest_framework import generics, serializers
 
 from app.utils import topics
 import pickle
 import pandas as pd
 import numpy as np
-from app.models import Employee
+from app.models import Employee, Skill, Interest, Project, Topic, Meeting, \
+    Review, MeetingStatus
 
 class Home(View):
     template_name = 'app/index.html'
@@ -18,6 +19,8 @@ class Home(View):
         data = pickle.load(open('data/johannesburg.pkl', 'r'))
         data_samples = [d['description'] for d in data]
         headlines = topics.compute_nmf(data_samples)
+        similarity = topics.compute_similarity(data_samples)
+        print similarity
         context = {'headlines': headlines}
         return render(request, self.template_name, context)
 
@@ -62,21 +65,22 @@ class GetData(generics.ListAPIView):
         title_desc = pickle.load(open('data/johannesburg.pkl', 'r'))
         names = pickle.load(open('data/employee_names.pkl', 'r'))
 
-        name_ = [{'full_names': name[0], 'gender':"Male" if name[1] == "Mr" else "Female"} for name in names]
+        name_ = [{'full_names': name[0], 'gender':True if name[1] == "Mr" else
+        False} for name in names]
         df1 = pd.DataFrame(title_desc)
         df2 = pd.DataFrame(name_)
-        df = pd.concat([df1,df2], axis=1)
+        df = pd.concat([df1, df2], axis=1)
         skill = pickle.load(open('data/skills.pkl', 'r'))
 
         def sk(skill):
             a = np.arange(len(skill))
             np.random.shuffle(a)
-            skills = [[skill[i],i] for i in a[:11]]
+            skills = [[skill[i], i] for i in a[:11]]
             return skills
 
         df['skill'] = df['id'].apply(lambda x: sk(skill))
         interests = open('data/interests.txt', 'r').readlines()
-        interest = [array.replace('\n','') for array in interests]
+        #interest = [array.replace('\n','') for array in interests]
 
 
         def rates(interest):
@@ -85,6 +89,67 @@ class GetData(generics.ListAPIView):
             interest = [[interest[i],i] for i in a[:11]]
             return interest
 
-        df['interests'] = df['id'].apply(lambda x: rates(interest))
+        #df['interests'] = df['id'].apply(lambda x: rates(interest))
+        def data_employee():
+            for item in range(len(df)):
+                Employee.objects.create(full_names=df[
+                    'full_names'][item], gender = df['gender'][item],
+                     job_desc=df['description'][item],
+                    job_title=df['job_title'][item])
+
+        def skills_insert(df):
+            """
+            # Step one: store all skills
+            skills = pickle.load(open('data/skills.pkl', 'r'))
+
+            for skill in skills:
+                Skill.objects.get_or_create(name=skill)
+
+            # Step two: associate skill with people
+            for emp in Employee.objects.all():
+               num = np.random.randint(8, 15)
+               skills = Skill.objects.all().order_by('?')[:num]
+
+               for skill in skills:
+                   if skill not in emp.skills.all():
+                       emp.skills.add(skill)
+            """
+            # Step three: interests
+            #for emp in Employee.objects.all():
+
+            #    pass
+            """
+            for item in range(len(df)):
+                employee =  Employee.objects.get(emp_id=df['id'][item])
+                for skill in df['skill'][item]:
+                    obj_skill = Skill.objects.get_or_create(name = skill[0])
+                    found = False
+                    print obj_skill
+                    for a in employee.skills.all():
+                        if a.name == obj_skill.name:
+                            found = True
+                            break
+
+                    if not found:
+                        employee.skills.add(obj_skill)
+            """
+
+        skills_insert(df)
+
+#################### serializers #########################################
 
 
+class EmployeeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Employee
+        fields = ['emp_id', 'full_names', 'job_title']
+
+
+class EmployeeDetails(generics.ListAPIView):
+    serializer_class = EmployeeSerializer
+
+    def get_queryset(self):
+        data = pickle.load(open('data/johannesburg.pkl', 'r'))
+        data_samples = [d['description'] for d in data]
+        return topics.compute_similarity(data_samples)
