@@ -61,6 +61,118 @@ $(document).ready(function () {
 
         $.ajax({
                 method: "GET",
+                url: "/app/rand/",
+                async: true,
+                success: function (data) {
+                        console.log(data)
+                        var str = '';
+                        var tbody = $('#meeting-1 tbody')[0];
+                        $.each(data, function (i, element) {
+                                var tr = document.createElement('tr');
+                                var fn = document.createElement('td');
+                                fn.innerHTML = element.full_names;
+                                var jt = document.createElement('td');
+                                jt.innerHTML = element.job_title;
+                                var id = document.createElement('td');
+                                id.innerHTML = element.emp_id;
+                                tr.appendChild(id)
+                                tr.appendChild(fn)
+                                tr.appendChild(jt)
+
+                                tbody.appendChild(tr);
+                                console.log(tbody.innerHTML)
+                                //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
+                        });
+
+                }
+        });
+
+        $.ajax({
+                method: "GET",
+                url: "/app/rand/",
+                async: true,
+                success: function (data) {
+                        console.log(data)
+                        var str = '';
+                        var tbody = $('#proj_tbl tbody')[0];
+                        $.each(data, function (i, element) {
+                                var tr = document.createElement('tr');
+                                var fn = document.createElement('td');
+                                fn.innerHTML = element.full_names;
+                                var jt = document.createElement('td');
+                                jt.innerHTML = element.job_title;
+                                var id = document.createElement('td');
+                                id.innerHTML = element.emp_id;
+                                tr.appendChild(id)
+                                tr.appendChild(fn)
+                                tr.appendChild(jt)
+
+                                tbody.appendChild(tr);
+                                console.log(tbody.innerHTML)
+                                //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
+                        });
+
+                }
+        });
+
+        $.ajax({
+                method: "GET",
+                url: "/app/rand/",
+                async: true,
+                success: function (data) {
+                        console.log(data)
+                        var str = '';
+                        var tbody = $('#colleagues tbody')[0];
+                        $.each(data, function (i, element) {
+                                var tr = document.createElement('tr');
+                                var fn = document.createElement('td');
+                                fn.innerHTML = element.full_names;
+                                var jt = document.createElement('td');
+                                jt.innerHTML = element.job_title;
+                                var id = document.createElement('td');
+                                id.innerHTML = element.emp_id;
+                                tr.appendChild(id)
+                                tr.appendChild(fn)
+                                tr.appendChild(jt)
+
+                                tbody.appendChild(tr);
+                                console.log(tbody.innerHTML)
+                                //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
+                        });
+
+                }
+        });
+        
+        $.ajax({
+                method: "GET",
+                url: "/app/rand/",
+                async: true,
+                success: function (data) {
+                        console.log(data)
+                        var str = '';
+                        var tbody = $('#meet-cols tbody')[0];
+                        $.each(data, function (i, element) {
+                                var tr = document.createElement('tr');
+                                var fn = document.createElement('td');
+                                fn.innerHTML = element.full_names;
+                                var jt = document.createElement('td');
+                                jt.innerHTML = element.job_title;
+                                var id = document.createElement('td');
+                                id.innerHTML = element.emp_id;
+                                tr.appendChild(id)
+                                tr.appendChild(fn)
+                                tr.appendChild(jt)
+
+                                tbody.appendChild(tr);
+                                console.log(tbody.innerHTML)
+                                //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
+                        });
+
+                }
+        });
+
+        $.ajax({
+                method: "GET",
                 url: "/app/sims/",
                 async: true,
                 success: function (data) {

@@ -154,3 +154,18 @@ class EmployeeDetails(generics.ListAPIView):
         data = pickle.load(open('data/johannesburg.pkl', 'r'))
         data_samples = [d['description'] for d in data]
         return topics.compute_similarity(data_samples)
+
+class EmployeeRandomSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Employee
+        fields = ['emp_id', 'full_names', 'job_title', 'job_desc']
+
+
+class EmployeeRandomDetails(generics.ListAPIView):
+    serializer_class = EmployeeSerializer
+
+    def get_queryset(self):
+        data = pickle.load(open('data/johannesburg.pkl', 'r'))
+        data_samples = [d['description'] for d in data]
+        return topics.compute_similarity(data_samples)
