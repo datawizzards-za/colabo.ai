@@ -61,7 +61,7 @@ $(document).ready(function () {
 
         $.ajax({
                 method: "GET",
-                url: "/app/rand/",
+                url: "/app/rands/",
                 async: true,
                 success: function (data) {
                         console.log(data)
@@ -105,7 +105,7 @@ $(document).ready(function () {
                                 var id = document.createElement('td');
                                 id.innerHTML = element.emp_id;
                                 var date = document.createElement('td');
-                                date.innerHTML = new Date() + 120;
+                                date.innerHTML = new Date();
                                 tr.appendChild(id)
                                 tr.appendChild(fn)
                                 tr.appendChild(jt)

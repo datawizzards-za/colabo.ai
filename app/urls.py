@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^data/$', views.GetData.as_view(), name='data'),
     url(r'^sims/$', views.EmployeeDetails.as_view(), name='sims'),
     url(r'^rand/$', views.EmployeeRandomDetails.as_view(), name='rand'),
+    url(r'^rands/$', views.EmployeeRandomXDetails.as_view(), name='rands'),
 
 ]
