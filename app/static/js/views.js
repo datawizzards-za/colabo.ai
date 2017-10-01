@@ -64,8 +64,24 @@ $(document).ready(function () {
                 url: "/app/sims/",
                 async: true,
                 success: function (data) {
+                        console.log(data)
+                        var str = '';
+                        var tbody = $('#table-top-3 tbody')[0];
                         $.each(data, function (i, element) {
-                                document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
+                                var tr = document.createElement('tr');
+                                var fn = document.createElement('td');
+                                fn.innerHTML = element.full_names;
+                                var jt = document.createElement('td');
+                                jt.innerHTML = element.job_title;
+                                var id = document.createElement('td');
+                                id.innerHTML = element.emp_id;
+                                tr.appendChild(id)
+                                tr.appendChild(fn)
+                                tr.appendChild(jt)
+
+                                tbody.appendChild(tr);
+                                console.log(tbody.innerHTML)
+                                //document.getElementById('top-profiles').innerHTML = '' + element['full_names'] + '';
                         });
 
                 }
