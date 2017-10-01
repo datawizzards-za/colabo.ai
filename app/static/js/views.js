@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         $('#btn_join_proj').click(function () {
                 $.notify("yay! request send to your line manager for approval.",
-                        { position: 'top right', className: 'info' });
+                        { position: 'right top', className: 'info' });
         });
 
 
